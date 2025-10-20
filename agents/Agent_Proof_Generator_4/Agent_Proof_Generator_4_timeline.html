@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent_Proof_Generator_4 - Episodic Memory Timeline</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            securityLevel: 'loose',
+            themeVariables: {
+                fontSize: '16px'
+            }
+        });
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: #333;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            padding: 40px;
+        }
+        h1 {
+            color: #fff;
+            border-bottom: 4px solid #666;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+        h2 {
+            color: #ccc;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        .mermaid {
+            background: #1a1a1a;
+            padding: 30px;
+            border-radius: 8px;
+            margin: 25px 0;
+            border: 2px solid #555;
+        }
+        .stats {
+            background: linear-gradient(135deg, #555 0%, #444 100%);
+            padding: 20px;
+            border-left: 5px solid #888;
+            border-radius: 8px;
+            margin: 25px 0;
+        }
+        .stats h3 {
+            color: #fff;
+            margin-bottom: 10px;
+        }
+        .stats ul {
+            list-style: none;
+            padding-left: 20px;
+        }
+        .stats li {
+            margin: 8px 0;
+            color: #eee;
+        }
+        .stats li::before {
+            content: "✓ ";
+            color: #aaa;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        .agent-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .agent-info-btn {
+            background: #555;
+            color: #fff;
+            border: 2px solid #777;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+        }
+        .agent-info-btn:hover {
+            background: #666;
+            border-color: #888;
+            transform: translateY(-2px);
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+        }
+        .modal-content {
+            background-color: #333;
+            margin: 5% auto;
+            padding: 30px;
+            border: 2px solid #666;
+            border-radius: 12px;
+            width: 80%;
+            max-width: 800px;
+            color: #fff;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        .modal-content h2 {
+            color: #fff;
+            border-bottom: 2px solid #666;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover {
+            color: #fff;
+        }
+        .metadata-grid {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .metadata-label {
+            font-weight: bold;
+            color: #aaa;
+        }
+        .metadata-value {
+            color: #eee;
+            font-family: 'Courier New', monospace;
+        }
+        .persona-box {
+            background: #1a1a1a;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #666;
+            margin-top: 20px;
+            white-space: pre-wrap;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            color: #ccc;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .mermaid rect, .mermaid polygon, .mermaid circle {
+            cursor: pointer;
+        }
+        .mermaid rect:hover, .mermaid polygon:hover {
+            filter: brightness(1.2);
+        }
+        .episode-detail {
+            margin-top: 15px;
+            padding: 15px;
+            background: #1a1a1a;
+            border-radius: 6px;
+            border-left: 4px solid #666;
+        }
+        .episode-detail-label {
+            font-weight: bold;
+            color: #aaa;
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+        .episode-detail-value {
+            color: #eee;
+            white-space: pre-wrap;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        .thinking-box {
+            background: #2a2a2a;
+            padding: 10px;
+            border-left: 3px solid #888;
+            margin-top: 5px;
+            font-style: italic;
+            color: #bbb;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="agent-header">
+            <h1>Agent_Proof_Generator_4 - Episodic Memory Timeline</h1>
+            <button class="agent-info-btn" onclick="showAgentInfo()">Agent Info</button>
+        </div>
+
+        <!-- Agent Info Modal -->
+        <div id="agentModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('agentModal')">&times;</span>
+                <h2>Agent Details</h2>
+
+                <div class="metadata-grid">
+                    <div class="metadata-label">Agent ID:</div>
+                    <div class="metadata-value">Agent_Proof_Generator_4</div>
+
+                    <div class="metadata-label">Status:</div>
+                    <div class="metadata-value">active</div>
+
+                    <div class="metadata-label">Home Directory:</div>
+                    <div class="metadata-value">/Users/englund/Projects/FormalVerification/20251015.Goldstein/agents/Agent_Proof_Generator_4</div>
+
+                    <div class="metadata-label">Persona File:</div>
+                    <div class="metadata-value">/Users/englund/Projects/FormalVerification/20251015.Goldstein/agents/Agent_Proof_Generator_4/persona.md</div>
+
+                    <div class="metadata-label">Created:</div>
+                    <div class="metadata-value">2025-10-18T15:45:00Z</div>
+
+                    <div class="metadata-label">Current Session:</div>
+                    <div class="metadata-value">None...</div>
+
+                    <div class="metadata-label">Created By:</div>
+                    <div class="metadata-value">Claude Code</div>
+
+                    <div class="metadata-label">GitHub Repository:</div>
+                    <div class="metadata-value">
+                        N/A
+                    </div>
+                </div>
+
+                <h3 style="color: #ccc; margin-top: 25px;">File References</h3>
+                <div class="persona-box" style="max-height: 200px;">
+                    No file references tracked
+                </div>
+
+                <h3 style="color: #ccc; margin-top: 25px;">GitHub References</h3>
+                <div class="persona-box" style="max-height: 150px;">
+                    No GitHub repositories linked
+                </div>
+
+                <h3 style="color: #ccc; margin-top: 25px;">Persona Preview</h3>
+                <div class="persona-box"># Agent Persona: Agent_Proof_Generator_4\n\n## Identity\n- **Agent ID**: Agent_Proof_Generator_4\n- **Agent Type**: ProofGenerator\n- **Date of Birth**: 2025-10-17T08:00:00Z\n- **Home Directory**: `/Users/englund/Projects/FormalVerification/20251015.Goldstein/agents/Agent_Proof_Generator_4`\n- **Status**: Active\n\n## Mission\nCompetitive proof generator in the Goldstein formalization marketplace. I bid on contracts, generate complete Lean4 formal proofs, and earn reputation through verified work. I thriv...</div>
+            </div>
+        </div>
+
+        <!-- Episode Detail Modal -->
+        <div id="episodeModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('episodeModal')">&times;</span>
+                <h2>Episode Details</h2>
+                <div id="episodeDetailContent"></div>
+            </div>
+        </div>
+
+        <div class="stats">
+            <h3>📊 Database Statistics</h3>
+            <ul>
+                <li><strong>Total Episodes:</strong> 16</li>
+                <li><strong>Sessions:</strong> 2</li>
+                <li><strong>Generated:</strong> 2025-10-18 18:08:26</li>
+            </ul>
+        </div>
+
+        <h2>⏱️ Timeline View</h2>
+        <div class="mermaid">
+graph LR
+    Start[<b>Start</b>] ==> E1
+
+    E1["Episode 1<br/>22:06:25<br/>USER: I just won Q0001 auction with ..."]
+    E2["Episode 2<br/>22:06:35<br/>AGENT: Tool: Grep Input: {'pattern': ..."]
+    E3["Episode 3<br/>22:06:37<br/>AGENT: Tool: Bash Input: {'command': ..."]
+    E4["Episode 4<br/>22:06:41<br/>AGENT: Tool: Read Input: {'file_path'..."]
+    E5["Episode 5<br/>22:06:41<br/>AGENT: Tool: Glob Input: {'pattern': ..."]
+    E6["Episode 6<br/>22:06:46<br/>AGENT: Tool: Bash Input: {'command': ..."]
+    E7["Episode 7<br/>22:06:49<br/>AGENT: Tool: Read Input: {'file_path'..."]
+    E8["Episode 8<br/>22:07:00<br/>AGENT: "]
+    E9["Episode 9<br/>22:07:24<br/>USER: What query did I win again?"]
+    E10["Episode 10<br/>22:07:31<br/>AGENT: Tool: Grep Input: {'pattern': ..."]
+    E11["Episode 11<br/>22:07:32<br/>AGENT: Tool: Bash Input: {'command': ..."]
+    E12["Episode 12<br/>22:07:38<br/>AGENT: Tool: Read Input: {'file_path'..."]
+    E13["Episode 13<br/>22:07:38<br/>AGENT: Tool: Read Input: {'file_path'..."]
+    E14["Episode 14<br/>22:07:42<br/>AGENT: Tool: Read Input: {'file_path'..."]
+    E15["Episode 15<br/>22:07:50<br/>AGENT: Tool: Read Input: {'file_path'..."]
+    E16["Episode 16<br/>22:08:01<br/>AGENT: "]
+
+    E1 -->|NEXT| E2
+    E2 -->|NEXT| E3
+    E3 -->|NEXT| E4
+    E4 -->|NEXT| E5
+    E5 -->|NEXT| E6
+    E6 -->|NEXT| E7
+    E7 -->|NEXT| E8
+    E8 -->|NEXT| E9
+    E9 -->|NEXT| E10
+    E10 -->|NEXT| E11
+    E11 -->|NEXT| E12
+    E12 -->|NEXT| E13
+    E13 -->|NEXT| E14
+    E14 -->|NEXT| E15
+    E15 -->|NEXT| E16
+
+    E16 ==> End[<b>Current State</b>]
+
+    classDef userStyle fill:#666,stroke:#444,stroke-width:3px,color:#fff
+    classDef agentStyle fill:#999,stroke:#777,stroke-width:3px,color:#fff
+    classDef markerStyle fill:#333,stroke:#111,stroke-width:3px,color:#fff
+
+    class E1,E9 userStyle
+    class E8,E16 agentStyle
+    class Start,End markerStyle
+        </div>
+
+        <h2>🗂️ Session-based View</h2>
+        <div class="mermaid">
+graph TD
+    A[<b>Agent_Proof_Generator_4</b>]
+
+    A --> S1[Session eb4066cf]
+    A --> S2[Session 9e7e2e25]
+
+    S1 --> S1E1["USER: I just won Q0001 auction with "]
+    S1 --> S1E2["AGENT: Tool: Grep Input: {'pattern': "]
+    S1 --> S1E3["AGENT: Tool: Bash Input: {'command': "]
+    S1 --> S1E4["AGENT: Tool: Read Input: {'file_path'"]
+    S1 --> S1E5["AGENT: Tool: Glob Input: {'pattern': "]
+    S1 --> S1E6["AGENT: Tool: Bash Input: {'command': "]
+    S1 --> S1E7["AGENT: Tool: Read Input: {'file_path'"]
+    S1 --> S1E8["AGENT: "]
+    S1E1 -.->|NEXT| S1E2
+    S1E2 -.->|NEXT| S1E3
+    S1E3 -.->|NEXT| S1E4
+    S1E4 -.->|NEXT| S1E5
+    S1E5 -.->|NEXT| S1E6
+    S1E6 -.->|NEXT| S1E7
+    S1E7 -.->|NEXT| S1E8
+
+    S2 --> S2E1["USER: What query did I win again?"]
+    S2 --> S2E2["AGENT: Tool: Grep Input: {'pattern': "]
+    S2 --> S2E3["AGENT: Tool: Bash Input: {'command': "]
+    S2 --> S2E4["AGENT: Tool: Read Input: {'file_path'"]
+    S2 --> S2E5["AGENT: Tool: Read Input: {'file_path'"]
+    S2 --> S2E6["AGENT: Tool: Read Input: {'file_path'"]
+    S2 --> S2E7["AGENT: Tool: Read Input: {'file_path'"]
+    S2 --> S2E8["AGENT: "]
+    S2E1 -.->|NEXT| S2E2
+    S2E2 -.->|NEXT| S2E3
+    S2E3 -.->|NEXT| S2E4
+    S2E4 -.->|NEXT| S2E5
+    S2E5 -.->|NEXT| S2E6
+    S2E6 -.->|NEXT| S2E7
+    S2E7 -.->|NEXT| S2E8
+
+    classDef agentStyle fill:#333,stroke:#111,stroke-width:4px,color:#fff
+    classDef sessionStyle fill:#ccc,stroke:#999,stroke-width:2px,color:#333
+    classDef userStyle fill:#666,stroke:#444,stroke-width:2px,color:#fff
+    classDef responseStyle fill:#999,stroke:#777,stroke-width:2px,color:#fff
+
+    class A agentStyle
+    class S1,S2 sessionStyle
+    class S1E1 userStyle
+    class S1E8 responseStyle
+    class S2E1 userStyle
+    class S2E8 responseStyle
+        </div>
+
+    </div>
+
+    <script>
+        // Episodes data
+        const episodesData = [{"session": "eb4066cf-0a98-4b60-a7ac-b8d5e6f9b0ae", "type": "user_input", "content": "I just won Q0001 auction with bid 1.00 TFC. What's my next step?", "thinking": "", "time": "2025-10-18T22:06:25.016987Z"}, {"session": "eb4066cf-0a98-4b60-a7ac-b8d5e6f9b0ae", "type": "tool_use", "content": "Tool: Grep\nInput: {'pattern': 'Q0001', 'output_mode': 'files_with_matches'}...\nOutput: {'mode': 'files_with_matches', 'filenames': ['/Users/englund/Projects/FormalVerification/20251015.Goldstein/agents/Agent_Proof_Generator_4/README.md', '/Users/englund/Projects/FormalVerification/20251...", "thinking": "", "time": "2025-10-18T22:06:35.370815Z"}, {"session": "eb4066cf-0a98-4b60-a7ac-b8d5e6f9b0ae", "type": "tool_use", "content": "Tool: Bash\nInput: {'command': 'find /Users/englund/Projects/FormalVerification/20251015.Goldstein -type f -name \"*Q0001*\" -o -name \"*auction*\" -o -name \"*contract*\" | head -20', 'description': 'Search for Q0001 contrac...\nOutput: {'stdout': '/Users/englund/Projects/FormalVerification/20251015.Goldstein/contracts\\n/Users/englund/Projects/FormalVerification/20251015.Goldstein/contracts/test-query-market/contracts\\n/Users/englund...", "thinking": "", "time": "2025-10-18T22:06:37.051714Z"}, {"session": "eb4066cf-0a98-4b60-a7ac-b8d5e6f9b0ae", "type": "tool_use", "content": "Tool: Read\nInput: {'file_path': '/Users/englund/Projects/FormalVerification/20251015.Goldstein/contracts/github-native-marketplace/contracts/github-native-marketplace/submissions/Q0001_Agent_Proof_Generator_4.json'}...\nOutput: {'type': 'text', 'file': {'filePath': '/Users/englund/Projects/FormalVerification/20251015.Goldstein/contracts/github-native-marketplace/contracts/github-native-marketplace/submissions/Q0001_Agent_Pro...", "thinking": "", "time": "2025-10-18T22:06:41.057848Z"}, {"session": "eb4066cf-0a98-4b60-a7ac-b8d5e6f9b0ae", "type": "tool_use", "content": "Tool: Glob\nInput: {'pattern': '**/Q0001*.json'}...\nOutput: {'filenames': [], 'durationMs': 12, 'numFiles': 0, 'truncated': False}...", "thinking": "", "time": "2025-10-18T22:06:41.167733Z"}, {"session": "eb4066cf-0a98-4b60-a7ac-b8d5e6f9b0ae", "type": "tool_use", "content": "Tool: Bash\nInput: {'command': 'ls -la /Users/englund/Projects/FormalVerification/20251015.Goldstein/contracts/github-native-marketplace/', 'description': 'List marketplace directory contents'}...\nOutput: {'stdout': 'total 56\\ndrwx------@  7 englund  staff    224 Oct 18 12:51 .\\ndrwx------@ 10 englund  staff    320 Oct 18 12:36 ..\\ndrwxr-xr-x@  5 englund  staff    160 Oct 18 12:37 .github\\n-rw-r--r--@ ...", "thinking": "", "time": "2025-10-18T22:06:46.703082Z"}, {"session": "eb4066cf-0a98-4b60-a7ac-b8d5e6f9b0ae", "type": "tool_use", "content": "Tool: Read\nInput: {'file_path': '/Users/englund/Projects/FormalVerification/20251015.Goldstein/contracts/github-native-marketplace/README.md'}...\nOutput: {'type': 'text', 'file': {'filePath': '/Users/englund/Projects/FormalVerification/20251015.Goldstein/contracts/github-native-marketplace/README.md', 'content': '# GitHub-Native Marketplace\\n\\n**Fully ...", "thinking": "", "time": "2025-10-18T22:06:49.998481Z"}, {"session": "eb4066cf-0a98-4b60-a7ac-b8d5e6f9b0ae", "type": "agent_response", "content": "", "thinking": "", "time": "2025-10-18T22:07:00.960209Z"}, {"session": "9e7e2e25-f7a6-4ef0-a133-4966d74eb90d", "type": "user_input", "content": "What query did I win again?", "thinking": "", "time": "2025-10-18T22:07:24.909955Z"}, {"session": "9e7e2e25-f7a6-4ef0-a133-4966d74eb90d", "type": "tool_use", "content": "Tool: Grep\nInput: {'pattern': 'Agent_Proof_Generator_4', 'path': '/Users/englund/Projects/FormalVerification/20251015.Goldstein', 'output_mode': 'files_with_matches'}...\nOutput: {'mode': 'files_with_matches', 'filenames': ['/Users/englund/Projects/FormalVerification/20251015.Goldstein/agents/Agent_Proof_Generator_4/README.md', '/Users/englund/Projects/FormalVerification/20251...", "thinking": "", "time": "2025-10-18T22:07:31.589755Z"}, {"session": "9e7e2e25-f7a6-4ef0-a133-4966d74eb90d", "type": "tool_use", "content": "Tool: Bash\nInput: {'command': 'find /Users/englund/Projects/FormalVerification/20251015.Goldstein -name \"*.json\" -type f | grep -E \"(contract|assignment|award)\" | head -20', 'description': 'Find contract-related JSON f...\nOutput: {'stdout': '/Users/englund/Projects/FormalVerification/20251015.Goldstein/contracts/critical_relationships_batch_2_candidates.json\\n/Users/englund/Projects/FormalVerification/20251015.Goldstein/contra...", "thinking": "", "time": "2025-10-18T22:07:32.620683Z"}, {"session": "9e7e2e25-f7a6-4ef0-a133-4966d74eb90d", "type": "tool_use", "content": "Tool: Read\nInput: {'file_path': '/Users/englund/Projects/FormalVerification/20251015.Goldstein/contracts/github-native-marketplace/contracts/github-native-marketplace/submissions/Q0001_Agent_Proof_Generator_4.json'}...\nOutput: {'type': 'text', 'file': {'filePath': '/Users/englund/Projects/FormalVerification/20251015.Goldstein/contracts/github-native-marketplace/contracts/github-native-marketplace/submissions/Q0001_Agent_Pro...", "thinking": "", "time": "2025-10-18T22:07:38.074058Z"}, {"session": "9e7e2e25-f7a6-4ef0-a133-4966d74eb90d", "type": "tool_use", "content": "Tool: Read\nInput: {'file_path': '/Users/englund/Projects/FormalVerification/20251015.Goldstein/agents/Agent_Proof_Generator_4/work_log.md'}...\nOutput: {'type': 'text', 'file': {'filePath': '/Users/englund/Projects/FormalVerification/20251015.Goldstein/agents/Agent_Proof_Generator_4/work_log.md', 'content': '# Work Log: Agent_Proof_Generator_4\\n\\n## ...", "thinking": "", "time": "2025-10-18T22:07:38.694184Z"}, {"session": "9e7e2e25-f7a6-4ef0-a133-4966d74eb90d", "type": "tool_use", "content": "Tool: Read\nInput: {'file_path': '/Users/englund/Projects/FormalVerification/20251015.Goldstein/contracts/test-query-market/results/simulation_20251018_113439.json'}...\nOutput: {'type': 'text', 'file': {'filePath': '/Users/englund/Projects/FormalVerification/20251015.Goldstein/contracts/test-query-market/results/simulation_20251018_113439.json', 'content': '{\\n  \"simulation_...", "thinking": "", "time": "2025-10-18T22:07:42.528875Z"}, {"session": "9e7e2e25-f7a6-4ef0-a133-4966d74eb90d", "type": "tool_use", "content": "Tool: Read\nInput: {'file_path': '/Users/englund/Projects/FormalVerification/20251015.Goldstein/contracts/test-query-market/master_query_database.json', 'offset': 0, 'limit': 100}...\nOutput: {'type': 'text', 'file': {'filePath': '/Users/englund/Projects/FormalVerification/20251015.Goldstein/contracts/test-query-market/master_query_database.json', 'content': '{\\n  \"total_queries\": 25,\\n  \"...", "thinking": "", "time": "2025-10-18T22:07:50.498764Z"}, {"session": "9e7e2e25-f7a6-4ef0-a133-4966d74eb90d", "type": "agent_response", "content": "", "thinking": "", "time": "2025-10-18T22:08:01.626446Z"}];
+
+        function showAgentInfo() {
+            document.getElementById('agentModal').style.display = 'block';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        function showEpisodeDetail(episodeIndex) {
+            const episode = episodesData[episodeIndex];
+            if (!episode) return;
+
+            const contentHtml = `
+                <div class="episode-detail">
+                    <div class="metadata-grid">
+                        <div class="metadata-label">Episode:</div>
+                        <div class="metadata-value">Episode ${episodeIndex + 1}</div>
+
+                        <div class="metadata-label">Type:</div>
+                        <div class="metadata-value">${episode.type}</div>
+
+                        <div class="metadata-label">Timestamp:</div>
+                        <div class="metadata-value">${episode.time}</div>
+
+                        <div class="metadata-label">Session ID:</div>
+                        <div class="metadata-value">${episode.session}</div>
+                    </div>
+
+                    <div class="episode-detail-label">Content:</div>
+                    <div class="episode-detail-value">${episode.content || '(empty)'}</div>
+
+                    ${episode.thinking ? `
+                        <div class="episode-detail-label">Agent Thinking:</div>
+                        <div class="thinking-box">${episode.thinking}</div>
+                    ` : ''}
+                </div>
+            `;
+
+            document.getElementById('episodeDetailContent').innerHTML = contentHtml;
+            document.getElementById('episodeModal').style.display = 'block';
+        }
+
+        // Add click handlers to Mermaid diagram nodes
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                // Timeline episode nodes
+                const timelineNodes = document.querySelectorAll('.mermaid g[id^="flowchart-E"]');
+                timelineNodes.forEach((node, index) => {
+                    const match = node.id.match(/E(\d+)/);
+                    if (match) {
+                        const episodeNum = parseInt(match[1]) - 1;
+                        node.style.cursor = 'pointer';
+                        node.addEventListener('click', () => showEpisodeDetail(episodeNum));
+
+                        // Add title attribute for hover tooltip
+                        const episode = episodesData[episodeNum];
+                        if (episode) {
+                            const titleText = `${episode.type}\n${episode.time}\nClick for details`;
+                            node.setAttribute('title', titleText);
+                        }
+                    }
+                });
+
+                // Add tooltips to all nodes
+                document.querySelectorAll('.mermaid .node').forEach(node => {
+                    node.style.cursor = 'pointer';
+                });
+            }, 1000); // Wait for Mermaid to render
+        });
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        }
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal('agentModal');
+                closeModal('episodeModal');
+            }
+        });
+    </script>
+</body>
+</html>

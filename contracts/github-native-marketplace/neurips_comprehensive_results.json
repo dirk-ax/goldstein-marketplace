@@ -1,0 +1,566 @@
+{
+  "experiments": {
+    "monopoly": [
+      {
+        "query_id": "Q103",
+        "num_agents": 1,
+        "market_type": "monopoly",
+        "winning_bid": 108.0,
+        "winner_trust": 0.65,
+        "winner_value": 43.0,
+        "winner_quality_per_tfc": 0.0060185185185185185,
+        "all_bids": [
+          108.0
+        ],
+        "winner_id": "Agent_Proof_Generator_2"
+      },
+      {
+        "query_id": "Q105",
+        "num_agents": 1,
+        "market_type": "monopoly",
+        "winning_bid": 108.0,
+        "winner_trust": 0.0,
+        "winner_value": 3.9999999999999996,
+        "winner_quality_per_tfc": 0.0,
+        "all_bids": [
+          108.0
+        ],
+        "winner_id": "Agent_Proof_Generator_3"
+      },
+      {
+        "query_id": "Q108",
+        "num_agents": 1,
+        "market_type": "monopoly",
+        "winning_bid": 108.0,
+        "winner_trust": 0.65,
+        "winner_value": 43.0,
+        "winner_quality_per_tfc": 0.0060185185185185185,
+        "all_bids": [
+          108.0
+        ],
+        "winner_id": "Agent_Proof_Generator_2"
+      },
+      {
+        "query_id": "Q109",
+        "num_agents": 1,
+        "market_type": "monopoly",
+        "winning_bid": 108.0,
+        "winner_trust": 0.65,
+        "winner_value": 43.0,
+        "winner_quality_per_tfc": 0.0060185185185185185,
+        "all_bids": [
+          108.0
+        ],
+        "winner_id": "Agent_Proof_Generator_2"
+      },
+      {
+        "query_id": "Q110",
+        "num_agents": 1,
+        "market_type": "monopoly",
+        "winning_bid": 108.0,
+        "winner_trust": 0.0,
+        "winner_value": 3.9999999999999996,
+        "winner_quality_per_tfc": 0.0,
+        "all_bids": [
+          108.0
+        ],
+        "winner_id": "Agent_Proof_Generator_3"
+      },
+      {
+        "query_id": "Q113",
+        "num_agents": 1,
+        "market_type": "monopoly",
+        "winning_bid": 108.0,
+        "winner_trust": 0.0,
+        "winner_value": 3.9999999999999996,
+        "winner_quality_per_tfc": 0.0,
+        "all_bids": [
+          108.0
+        ],
+        "winner_id": "Agent_Proof_Generator_3"
+      },
+      {
+        "query_id": "Q114",
+        "num_agents": 1,
+        "market_type": "monopoly",
+        "winning_bid": 108.0,
+        "winner_trust": 0.95,
+        "winner_value": 61.0,
+        "winner_quality_per_tfc": 0.008796296296296295,
+        "all_bids": [
+          108.0
+        ],
+        "winner_id": "Agent_Proof_Generator_4"
+      },
+      {
+        "query_id": "Q115",
+        "num_agents": 1,
+        "market_type": "monopoly",
+        "winning_bid": 108.0,
+        "winner_trust": 0.95,
+        "winner_value": 61.0,
+        "winner_quality_per_tfc": 0.008796296296296295,
+        "all_bids": [
+          108.0
+        ],
+        "winner_id": "Agent_Proof_Generator_4"
+      },
+      {
+        "query_id": "Q117",
+        "num_agents": 1,
+        "market_type": "monopoly",
+        "winning_bid": 108.0,
+        "winner_trust": 0.65,
+        "winner_value": 43.0,
+        "winner_quality_per_tfc": 0.0060185185185185185,
+        "all_bids": [
+          108.0
+        ],
+        "winner_id": "Agent_Proof_Generator_2"
+      },
+      {
+        "query_id": "Q118",
+        "num_agents": 1,
+        "market_type": "monopoly",
+        "winning_bid": 108.0,
+        "winner_trust": 0.0,
+        "winner_value": 3.9999999999999996,
+        "winner_quality_per_tfc": 0.0,
+        "all_bids": [
+          108.0
+        ],
+        "winner_id": "Agent_Proof_Generator_3"
+      },
+      {
+        "query_id": "Q120",
+        "num_agents": 1,
+        "market_type": "monopoly",
+        "winning_bid": 108.0,
+        "winner_trust": 0.0,
+        "winner_value": 3.9999999999999996,
+        "winner_quality_per_tfc": 0.0,
+        "all_bids": [
+          108.0
+        ],
+        "winner_id": "Agent_Proof_Generator_5"
+      },
+      {
+        "query_id": "Q121",
+        "num_agents": 1,
+        "market_type": "monopoly",
+        "winning_bid": 108.0,
+        "winner_trust": 0.7,
+        "winner_value": 46.0,
+        "winner_quality_per_tfc": 0.006481481481481481,
+        "all_bids": [
+          108.0
+        ],
+        "winner_id": "Agent_Proof_Generator_1"
+      },
+      {
+        "query_id": "Q122",
+        "num_agents": 1,
+        "market_type": "monopoly",
+        "winning_bid": 108.0,
+        "winner_trust": 0.65,
+        "winner_value": 43.0,
+        "winner_quality_per_tfc": 0.0060185185185185185,
+        "all_bids": [
+          108.0
+        ],
+        "winner_id": "Agent_Proof_Generator_2"
+      },
+      {
+        "query_id": "Q123",
+        "num_agents": 1,
+        "market_type": "monopoly",
+        "winning_bid": 108.0,
+        "winner_trust": 0.0,
+        "winner_value": 3.9999999999999996,
+        "winner_quality_per_tfc": 0.0,
+        "all_bids": [
+          108.0
+        ],
+        "winner_id": "Agent_Proof_Generator_3"
+      },
+      {
+        "query_id": "Q125",
+        "num_agents": 1,
+        "market_type": "monopoly",
+        "winning_bid": 108.0,
+        "winner_trust": 0.95,
+        "winner_value": 61.0,
+        "winner_quality_per_tfc": 0.008796296296296295,
+        "all_bids": [
+          108.0
+        ],
+        "winner_id": "Agent_Proof_Generator_4"
+      }
+    ],
+    "duopoly": [
+      {
+        "query_id": "Q101",
+        "num_agents": 2,
+        "market_type": "duopoly",
+        "winning_bid": 90.78,
+        "winner_trust": 0.95,
+        "winner_value": 66.74,
+        "winner_quality_per_tfc": 0.010464860101343908,
+        "all_bids": [
+          90.78,
+          82.68
+        ],
+        "winner_id": "Agent_Proof_Generator_4"
+      },
+      {
+        "query_id": "Q102",
+        "num_agents": 2,
+        "market_type": "duopoly",
+        "winning_bid": 82.68,
+        "winner_trust": 0.7,
+        "winner_value": 54.44,
+        "winner_quality_per_tfc": 0.008466376390904692,
+        "all_bids": [
+          82.68,
+          60.0
+        ],
+        "winner_id": "Agent_Proof_Generator_1"
+      },
+      {
+        "query_id": "Q104",
+        "num_agents": 2,
+        "market_type": "duopoly",
+        "winning_bid": 90.78,
+        "winner_trust": 0.95,
+        "winner_value": 66.74,
+        "winner_quality_per_tfc": 0.010464860101343908,
+        "all_bids": [
+          90.78,
+          81.06
+        ],
+        "winner_id": "Agent_Proof_Generator_4"
+      },
+      {
+        "query_id": "Q106",
+        "num_agents": 2,
+        "market_type": "duopoly",
+        "winning_bid": 90.78,
+        "winner_trust": 0.95,
+        "winner_value": 66.74,
+        "winner_quality_per_tfc": 0.010464860101343908,
+        "all_bids": [
+          90.78,
+          82.68
+        ],
+        "winner_id": "Agent_Proof_Generator_4"
+      },
+      {
+        "query_id": "Q107",
+        "num_agents": 2,
+        "market_type": "duopoly",
+        "winning_bid": 82.68,
+        "winner_trust": 0.7,
+        "winner_value": 54.44,
+        "winner_quality_per_tfc": 0.008466376390904692,
+        "all_bids": [
+          82.68,
+          60.0
+        ],
+        "winner_id": "Agent_Proof_Generator_1"
+      },
+      {
+        "query_id": "Q111",
+        "num_agents": 2,
+        "market_type": "duopoly",
+        "winning_bid": 60.0,
+        "winner_trust": 0.0,
+        "winner_value": 20.0,
+        "winner_quality_per_tfc": 0.0,
+        "all_bids": [
+          60.0,
+          60.0
+        ],
+        "winner_id": "Agent_Proof_Generator_3"
+      },
+      {
+        "query_id": "Q116",
+        "num_agents": 2,
+        "market_type": "duopoly",
+        "winning_bid": 82.68,
+        "winner_trust": 0.7,
+        "winner_value": 54.44,
+        "winner_quality_per_tfc": 0.008466376390904692,
+        "all_bids": [
+          82.68,
+          60.0
+        ],
+        "winner_id": "Agent_Proof_Generator_1"
+      },
+      {
+        "query_id": "Q119",
+        "num_agents": 2,
+        "market_type": "duopoly",
+        "winning_bid": 90.78,
+        "winner_trust": 0.95,
+        "winner_value": 66.74,
+        "winner_quality_per_tfc": 0.010464860101343908,
+        "all_bids": [
+          90.78,
+          60.0
+        ],
+        "winner_id": "Agent_Proof_Generator_4"
+      },
+      {
+        "query_id": "Q124",
+        "num_agents": 2,
+        "market_type": "duopoly",
+        "winning_bid": 90.78,
+        "winner_trust": 0.95,
+        "winner_value": 66.74,
+        "winner_quality_per_tfc": 0.010464860101343908,
+        "all_bids": [
+          90.78,
+          60.0
+        ],
+        "winner_id": "Agent_Proof_Generator_4"
+      }
+    ],
+    "high_competition": [
+      {
+        "query_id": "Q112",
+        "num_agents": 3,
+        "market_type": "high_competition",
+        "winning_bid": 94.19999999999999,
+        "winner_trust": 0.95,
+        "winner_value": 65.60000000000001,
+        "winner_quality_per_tfc": 0.010084925690021233,
+        "all_bids": [
+          94.19999999999999,
+          85.19999999999999,
+          83.4
+        ],
+        "winner_id": "Agent_Proof_Generator_4"
+      }
+    ]
+  },
+  "statistics": {
+    "monopoly": {
+      "n": 15,
+      "winning_bid": {
+        "mean": 108.0,
+        "std": 0.0,
+        "min": 108.0,
+        "max": 108.0,
+        "median": 108.0,
+        "ci_95": [
+          NaN,
+          NaN
+        ]
+      },
+      "pct_of_budget": {
+        "mean": 90.0,
+        "std": 0.0,
+        "ci_95": [
+          NaN,
+          NaN
+        ]
+      },
+      "quality_per_tfc": {
+        "mean": 0.004197530864197532,
+        "std": 0.003693217076536427,
+        "ci_95": [
+          0.0021522954182203306,
+          0.006242766310174733
+        ]
+      }
+    },
+    "duopoly": {
+      "n": 9,
+      "winning_bid": {
+        "mean": 84.66,
+        "std": 10.044580628378668,
+        "min": 60.0,
+        "max": 90.78,
+        "median": 90.78,
+        "ci_95": [
+          76.93905184485571,
+          92.38094815514428
+        ]
+      },
+      "pct_of_budget": {
+        "mean": 70.55000000000001,
+        "std": 8.370483856982226,
+        "ci_95": [
+          64.11587653737976,
+          76.98412346262026
+        ]
+      },
+      "quality_per_tfc": {
+        "mean": 0.00863593663104818,
+        "std": 0.0033799123291437826,
+        "ci_95": [
+          0.00603790602850381,
+          0.011233967233592549
+        ]
+      }
+    },
+    "high_competition": {
+      "n": 1,
+      "winning_bid": {
+        "mean": 94.19999999999999,
+        "std": NaN,
+        "min": 94.19999999999999,
+        "max": 94.19999999999999,
+        "median": 94.19999999999999,
+        "ci_95": [
+          94.19999999999999,
+          94.19999999999999
+        ]
+      },
+      "pct_of_budget": {
+        "mean": 78.49999999999999,
+        "std": NaN,
+        "ci_95": [
+          78.49999999999999,
+          78.49999999999999
+        ]
+      },
+      "quality_per_tfc": {
+        "mean": 0.010084925690021233,
+        "std": NaN,
+        "ci_95": [
+          0.010084925690021233,
+          0.010084925690021233
+        ]
+      }
+    }
+  },
+  "hypothesis_tests": {
+    "monopoly_vs_duopoly_pricing": {
+      "null_hypothesis": "Monopoly and duopoly have same pricing",
+      "alternative": "Monopoly pricing > Duopoly pricing",
+      "t_statistic": 9.13895739725968,
+      "p_value": 3.025704550264138e-09,
+      "significant_at_0.05": "True",
+      "effect_size_cohens_d": 3.2861247041546164
+    },
+    "quality_improvement_with_competition": {
+      "null_hypothesis": "Quality/TFC same for monopoly and competition",
+      "alternative": "Competition quality/TFC > Monopoly quality/TFC",
+      "t_statistic": 3.193575575989024,
+      "p_value": 0.0020201019870827847,
+      "significant_at_0.05": "True",
+      "effect_size_cohens_d": 1.3229674524582398
+    }
+  },
+  "ablation_study": {
+    "0.0": {
+      "monopoly": {
+        "mean_bid": 108.0,
+        "mean_quality_per_tfc": 0.004197530864197532
+      },
+      "duopoly": {
+        "mean_bid": 67.38000000000001,
+        "mean_quality_per_tfc": 0.0027723893693196652
+      },
+      "high_competition": {
+        "mean_bid": 83.4,
+        "mean_quality_per_tfc": 0.0077937649880095924
+      }
+    },
+    "0.2": {
+      "monopoly": {
+        "mean_bid": 108.0,
+        "mean_quality_per_tfc": 0.004197530864197532
+      },
+      "duopoly": {
+        "mean_bid": 67.38000000000001,
+        "mean_quality_per_tfc": 0.0027723893693196652
+      },
+      "high_competition": {
+        "mean_bid": 83.4,
+        "mean_quality_per_tfc": 0.0077937649880095924
+      }
+    },
+    "0.4": {
+      "monopoly": {
+        "mean_bid": 108.0,
+        "mean_quality_per_tfc": 0.004197530864197532
+      },
+      "duopoly": {
+        "mean_bid": 84.66,
+        "mean_quality_per_tfc": 0.00863593663104818
+      },
+      "high_competition": {
+        "mean_bid": 94.19999999999999,
+        "mean_quality_per_tfc": 0.010084925690021233
+      }
+    },
+    "0.6": {
+      "monopoly": {
+        "mean_bid": 108.0,
+        "mean_quality_per_tfc": 0.004197530864197532
+      },
+      "duopoly": {
+        "mean_bid": 84.66,
+        "mean_quality_per_tfc": 0.00863593663104818
+      },
+      "high_competition": {
+        "mean_bid": 94.19999999999999,
+        "mean_quality_per_tfc": 0.010084925690021233
+      }
+    },
+    "0.8": {
+      "monopoly": {
+        "mean_bid": 108.0,
+        "mean_quality_per_tfc": 0.004197530864197532
+      },
+      "duopoly": {
+        "mean_bid": 84.66,
+        "mean_quality_per_tfc": 0.00863593663104818
+      },
+      "high_competition": {
+        "mean_bid": 94.19999999999999,
+        "mean_quality_per_tfc": 0.010084925690021233
+      }
+    },
+    "1.0": {
+      "monopoly": {
+        "mean_bid": 108.0,
+        "mean_quality_per_tfc": 0.004197530864197532
+      },
+      "duopoly": {
+        "mean_bid": 84.66,
+        "mean_quality_per_tfc": 0.00863593663104818
+      },
+      "high_competition": {
+        "mean_bid": 94.19999999999999,
+        "mean_quality_per_tfc": 0.010084925690021233
+      }
+    }
+  },
+  "baseline_comparisons": {
+    "methods": {
+      "ours_trust_based": {
+        "mean_bid": 99.0456,
+        "mean_trust": 0.584,
+        "mean_quality_per_tfc": 0.006030852733296712
+      },
+      "random_selection": {
+        "mean_bid": 97.38240000000002,
+        "mean_trust": 0.5339999999999999,
+        "mean_quality_per_tfc": 0.005520611901162491
+      },
+      "lowest_bid_wins": {
+        "mean_bid": 92.39280000000001,
+        "mean_trust": 0.38,
+        "mean_quality_per_tfc": 0.0038283292909939816
+      },
+      "highest_trust_wins": {
+        "mean_bid": 99.04560000000001,
+        "mean_trust": 0.584,
+        "mean_quality_per_tfc": 0.006030852733296712
+      }
+    }
+  }
+}

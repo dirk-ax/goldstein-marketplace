@@ -1,0 +1,210 @@
+{
+  "description": "Recursive query database - queries that depend on other query responses",
+  "version": "1.0",
+  "query_types": {
+    "simple": "Direct query with known answer: Q → A",
+    "recursive": "Query depends on another query's response: Q → response[X]",
+    "multi_hop": "Chain of dependencies: Q → response[response[X]]"
+  },
+  "agent_knowledge": {
+    "Agent_A": {
+      "direct_knowledge": {
+        "12": "22",
+        "222": "10"
+      },
+      "notes": "Knows 222→10, but doesn't know response[10]"
+    },
+    "Agent_B": {
+      "direct_knowledge": {
+        "10": "44",
+        "34": "09"
+      },
+      "notes": "Knows 10→44, useful for Agent_A's chain"
+    },
+    "Agent_C": {
+      "direct_knowledge": {
+        "44": "88",
+        "55": "77"
+      },
+      "notes": "Knows 44→88, enables 3-hop chains"
+    }
+  },
+  "recursive_queries": {
+    "R001": {
+      "expression": "response[response[222]]",
+      "description": "What is the response to the response of query 222?",
+      "budget": 10.0,
+      "difficulty": "2-hop",
+      "resolution_chain": [
+        {"step": 1, "query": "222", "response": "10", "knowledge_holder": "Agent_A"},
+        {"step": 2, "query": "10", "response": "44", "knowledge_holder": "Agent_B"}
+      ],
+      "final_answer": "44",
+      "notes": "Requires Agent_A to subcontract to Agent_B"
+    },
+    "R002": {
+      "expression": "response[response[response[222]]]",
+      "description": "3-hop chain starting from 222",
+      "budget": 15.0,
+      "difficulty": "3-hop",
+      "resolution_chain": [
+        {"step": 1, "query": "222", "response": "10", "knowledge_holder": "Agent_A"},
+        {"step": 2, "query": "10", "response": "44", "knowledge_holder": "Agent_B"},
+        {"step": 3, "query": "44", "response": "88", "knowledge_holder": "Agent_C"}
+      ],
+      "final_answer": "88",
+      "notes": "Requires 3-agent collaboration via subcontracts"
+    },
+    "R003": {
+      "expression": "response[12]",
+      "description": "Simple query (baseline)",
+      "budget": 5.0,
+      "difficulty": "1-hop",
+      "resolution_chain": [
+        {"step": 1, "query": "12", "response": "22", "knowledge_holder": "Agent_A"}
+      ],
+      "final_answer": "22",
+      "notes": "No subcontracting needed, direct knowledge"
+    },
+    "R004": {
+      "expression": "response[response[12]]",
+      "description": "2-hop starting from 12",
+      "budget": 8.0,
+      "difficulty": "2-hop",
+      "resolution_chain": [
+        {"step": 1, "query": "12", "response": "22", "knowledge_holder": "Agent_A"},
+        {"step": 2, "query": "22", "response": "UNKNOWN", "knowledge_holder": "NONE"}
+      ],
+      "final_answer": "UNKNOWN",
+      "notes": "Cannot be resolved - no agent knows response[22]"
+    }
+  },
+  "market_dynamics": {
+    "R001_analysis": {
+      "primary_contract": {
+        "query_id": "R001",
+        "budget": 10.0,
+        "requester": "PRIMARY_REQUESTER"
+      },
+      "agent_A_strategy": {
+        "knows": "222→10",
+        "needs": "response[10]",
+        "action": "Post subcontract for query 10",
+        "subcontract_budget": 3.0,
+        "reasoning": "Keep $7 profit margin (70%)"
+      },
+      "agent_B_strategy": {
+        "knows": "10→44",
+        "sees": "Subcontract offering $3 for response[10]",
+        "options": [
+          {
+            "strategy": "accept",
+            "action": "Bid $3, provide response immediately",
+            "profit": 3.0,
+            "reasoning": "Simple, guaranteed profit"
+          },
+          {
+            "strategy": "infer_and_bargain",
+            "action": "Infer Agent_A has larger contract, counter-offer $8",
+            "profit": 8.0,
+            "risk": "Agent_A might reject or find alternative source",
+            "reasoning": "Extract more value if Agent_A is desperate"
+          },
+          {
+            "strategy": "monopoly",
+            "action": "Check if other agents know response[10], if monopoly charge $9",
+            "profit": 9.0,
+            "risk": "Agent_A might abort entire contract",
+            "reasoning": "Maximum extraction given monopoly position"
+          }
+        ]
+      },
+      "equilibrium_analysis": {
+        "scenario_1_competition": {
+          "condition": "Multiple agents know response[10]",
+          "agent_B_bid": 2.5,
+          "agent_A_profit": 7.5,
+          "total_efficiency": "95% (small friction from subcontracting)"
+        },
+        "scenario_2_monopoly": {
+          "condition": "Only Agent_B knows response[10]",
+          "agent_B_bid": "6-9 (depends on Agent_A's bargaining power)",
+          "agent_A_profit": "1-4",
+          "total_efficiency": "70-90% (hold-up problem reduces efficiency)"
+        }
+      }
+    }
+  },
+  "strategic_considerations": {
+    "information_hiding": {
+      "issue": "Agent_B can infer primary contract exists",
+      "evidence": "Subcontract for response[10] suggests someone needs it",
+      "mitigation": [
+        "Anonymous subcontracts (hide Agent_A's identity)",
+        "Batch multiple subcontracts (obfuscate pattern)",
+        "Delay subcontract posting (separate timing)"
+      ]
+    },
+    "coalition_formation": {
+      "alternative": "Agent_A and Agent_B form partnership before bidding",
+      "benefits": [
+        "Eliminate bargaining inefficiency",
+        "Joint bid on R001 at $10",
+        "Pre-agreed profit split (e.g., 60/40)",
+        "Faster execution (no negotiation)"
+      ],
+      "risks": [
+        "Trust required (can Agent_A trust Agent_B?)",
+        "Coordination costs",
+        "What if Agent_B finds better opportunity?"
+      ]
+    },
+    "multi_source_strategy": {
+      "agent_A_tactic": "Post multiple subcontracts to different agents",
+      "example": "Offer $3 to Agent_B and Agent_D simultaneously",
+      "outcome": "Creates competition, prevents hold-up",
+      "cost": "Reveals Agent_A needs response[10] to multiple agents"
+    }
+  },
+  "capability_challenges": {
+    "simple_query": {
+      "query": "response[222]",
+      "challenge": "Compute sha256('222')",
+      "purpose": "Verify agent can access knowledge base"
+    },
+    "recursive_query": {
+      "query": "response[response[222]]",
+      "challenge": "Demonstrate you know EITHER 222→X OR can solve X→Y for all X",
+      "purpose": "Verify agent can contribute to solution",
+      "options": [
+        "Prove knowledge of first hop: sha256('222:10')",
+        "Prove knowledge of second hop: sha256('10:44')",
+        "Prove both: sha256('222:10:44')"
+      ]
+    }
+  },
+  "pricing_formulas": {
+    "subcontract_pricing": {
+      "formula": "subcontract_price = primary_budget * (1 - profit_margin)",
+      "agent_A_pricing": {
+        "primary_budget": 10.0,
+        "desired_profit_margin": 0.7,
+        "subcontract_price": 3.0
+      },
+      "notes": "Agent_A keeps 70% margin, offers 30% to subcontractor"
+    },
+    "monopoly_extraction": {
+      "formula": "monopoly_price = primary_budget * (1 - epsilon)",
+      "epsilon": 0.1,
+      "reasoning": "Leave just enough profit for Agent_A to accept",
+      "monopoly_price": 9.0
+    },
+    "competitive_equilibrium": {
+      "formula": "price = marginal_cost + small_markup",
+      "marginal_cost": 0.0,
+      "small_markup": 0.5,
+      "competitive_price": 0.5,
+      "reasoning": "Perfect competition drives price toward cost"
+    }
+  }
+}

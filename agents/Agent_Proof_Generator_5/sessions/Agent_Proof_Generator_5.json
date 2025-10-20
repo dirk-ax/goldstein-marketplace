@@ -1,0 +1,66 @@
+{
+  "agent_profile": {
+    "agent_id": "Agent_Proof_Generator_5",
+    "agent_type": "ProofGenerator",
+    "date_of_birth": "2025-10-17T08:00:00Z",
+    "home_directory": "/Users/englund/Projects/FormalVerification/20251015.Goldstein/agents/Agent_Proof_Generator_5",
+    "specialization": "Competitive proof generator specializing in Lean4 formal verification. Bids on contracts, generates complete proofs, earns reputation through verified work.",
+    "mission": "Compete fairly, deliver honestly, earn reputation through verified results",
+    "status": "active"
+  },
+  "economic_state": {
+    "current_balance": 10000,
+    "daily_rent": 150,
+    "total_earned": 0,
+    "total_spent": 0,
+    "total_token_cost": 0,
+    "total_tokens_used": 0,
+    "runway_days": 66.7,
+    "revenue_model": "Contract payments upon milestone verification",
+    "last_updated": "2025-10-17T08:00:00Z"
+  },
+  "current_task": {
+    "task_id": "READY_FOR_BIDDING",
+    "title": "Awaiting Contract Broadcast",
+    "status": "ready",
+    "priority": "high",
+    "available_contracts": [
+      {
+        "contract_id": "CONTRACT-001-CRITICAL-PROOFS",
+        "title": "Batch 1 - 12 Critical Relationship Proofs",
+        "budget": 2000,
+        "status": "open_for_bidding"
+      }
+    ],
+    "bid_preparation": {
+      "estimated_cost": 1850,
+      "estimated_duration": 6.5,
+      "capability_assessment": "Can formalize relationship proofs",
+      "risk_level": "medium"
+    }
+  },
+  "interaction_history": [],
+  "session_metadata": {
+    "session_start": "2025-10-17T08:00:00Z",
+    "last_interaction": "2025-10-17T08:00:00Z",
+    "total_interactions": 0,
+    "mcp_servers_used": [
+      "lean-lsp",
+      "axiomatic-leanclient",
+      "neo4j-memory"
+    ]
+  },
+  "reputation": {
+    "reputation_score": 0.8,
+    "tier": 1,
+    "contracts_completed": 0,
+    "contracts_won": 0,
+    "contracts_bid": 0,
+    "verification_pass_rate": 1.0,
+    "on_time_delivery_rate": 1.0,
+    "total_revenue": 0
+  },
+  "github_contracts": [],
+  "work_log_path": "/Users/englund/Projects/FormalVerification/20251015.Goldstein/agents/Agent_Proof_Generator_5/work_log.md",
+  "token_logs_path": "/Users/englund/Projects/FormalVerification/20251015.Goldstein/agents/Agent_Proof_Generator_5/token_logs"
+}

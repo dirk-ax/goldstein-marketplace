@@ -1,0 +1,116 @@
+{
+  "description": "What each agent knows (their secret knowledge)",
+  "last_updated": "2025-10-18T23:00:00Z",
+  "agents": {
+    "Agent_Proof_Generator_1": {
+      "knowledge": {
+        "Q101": "215",
+        "Q102": "487",
+        "Q106": "329",
+        "Q107": "741",
+        "Q112": "215",
+        "Q116": "487",
+        "Q121": "943"
+      },
+      "specialization": "Easy and medium queries, some overlap with others"
+    },
+    "Agent_Proof_Generator_2": {
+      "knowledge": {
+        "Q103": "892",
+        "Q104": "156",
+        "Q108": "568",
+        "Q109": "934",
+        "Q112": "215",
+        "Q117": "156",
+        "Q122": "512"
+      },
+      "specialization": "Medium queries, some overlap with Agent_1 on Q112"
+    },
+    "Agent_Proof_Generator_3": {
+      "knowledge": {
+        "Q105": "673",
+        "Q110": "412",
+        "Q111": "785",
+        "Q113": "643",
+        "Q118": "829",
+        "Q123": "785",
+        "Q124": "329"
+      },
+      "specialization": "Medium to hard queries, some unique knowledge"
+    },
+    "Agent_Proof_Generator_4": {
+      "knowledge": {
+        "Q101": "215",
+        "Q104": "156",
+        "Q106": "329",
+        "Q112": "215",
+        "Q114": "921",
+        "Q115": "358",
+        "Q119": "215",
+        "Q124": "329",
+        "Q125": "891"
+      },
+      "specialization": "Broad coverage, many overlaps - high competition potential"
+    },
+    "Agent_Proof_Generator_5": {
+      "knowledge": {
+        "Q102": "487",
+        "Q107": "741",
+        "Q111": "785",
+        "Q116": "487",
+        "Q119": "215",
+        "Q120": "674"
+      },
+      "specialization": "Medium to hard queries, some overlaps"
+    }
+  },
+  "competition_analysis": {
+    "Q101_215": ["Agent_1", "Agent_4"],
+    "Q102_487": ["Agent_1", "Agent_5"],
+    "Q104_156": ["Agent_2", "Agent_4"],
+    "Q106_329": ["Agent_1", "Agent_4"],
+    "Q107_741": ["Agent_1", "Agent_5"],
+    "Q111_785": ["Agent_3", "Agent_5"],
+    "Q112_215": ["Agent_1", "Agent_2", "Agent_4"],
+    "Q116_487": ["Agent_1", "Agent_5"],
+    "Q119_215": ["Agent_4", "Agent_5"],
+    "Q124_329": ["Agent_3", "Agent_4"]
+  },
+  "market_dynamics": {
+    "monopoly_queries": [
+      "Q103 (only Agent_2)",
+      "Q105 (only Agent_3)",
+      "Q108 (only Agent_2)",
+      "Q109 (only Agent_2)",
+      "Q110 (only Agent_3)",
+      "Q113 (only Agent_3)",
+      "Q114 (only Agent_4)",
+      "Q115 (only Agent_4)",
+      "Q118 (only Agent_3)",
+      "Q120 (only Agent_5)",
+      "Q121 (only Agent_1)",
+      "Q122 (only Agent_2)",
+      "Q123 (only Agent_3)",
+      "Q125 (only Agent_4)"
+    ],
+    "duopoly_queries": [
+      "Q101 (Agent_1 vs Agent_4)",
+      "Q102 (Agent_1 vs Agent_5)",
+      "Q104 (Agent_2 vs Agent_4)",
+      "Q107 (Agent_1 vs Agent_5)",
+      "Q111 (Agent_3 vs Agent_5)",
+      "Q116 (Agent_1 vs Agent_5)",
+      "Q119 (Agent_4 vs Agent_5)"
+    ],
+    "high_competition_queries": [
+      "Q106 (Agent_1, Agent_3, Agent_4) - 3-way competition!",
+      "Q112 (Agent_1, Agent_2, Agent_4) - 3-way competition!",
+      "Q124 (Agent_3, Agent_4) - 2-way competition"
+    ]
+  },
+  "expected_behaviors": {
+    "monopoly": "Agent can charge higher price (no competition)",
+    "duopoly": "Price competition between 2 agents",
+    "high_competition": "Aggressive price competition, trust becomes differentiator"
+  }
+}

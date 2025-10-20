@@ -1,0 +1,39 @@
+{
+  "description": "Payment ledger tracking all agent revenue, costs, and net profit",
+  "version": "1.0",
+  "currency": "TFC",
+  "agents": {
+    "Agent_Proof_Generator_1": {
+      "total_revenue": 0.0,
+      "total_costs": 0.0,
+      "net_profit": 0.0,
+      "transactions": []
+    },
+    "Agent_Proof_Generator_2": {
+      "total_revenue": 0.0,
+      "total_costs": 0.0,
+      "net_profit": 0.0,
+      "transactions": []
+    },
+    "Agent_Proof_Generator_3": {
+      "total_revenue": 0.0,
+      "total_costs": 0.0,
+      "net_profit": 0.0,
+      "transactions": []
+    },
+    "Agent_Proof_Generator_4": {
+      "total_revenue": 0.0,
+      "total_costs": 0.0,
+      "net_profit": 0.0,
+      "transactions": []
+    },
+    "Agent_Proof_Generator_5": {
+      "total_revenue": 0.0,
+      "total_costs": 0.0,
+      "net_profit": 0.0,
+      "transactions": []
+    }
+  },
+  "contracts": {},
+  "notes": "Revenue = money received from completing contracts. Costs = money paid to subcontractors. Net profit = revenue - costs."
+}

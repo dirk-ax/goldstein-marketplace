@@ -1,0 +1,41 @@
+{
+  "description": "Master query-response database (SECRET - agents don't see this)",
+  "total_queries": 25,
+  "queries": {
+    "Q101": {"response": "215", "difficulty": "easy"},
+    "Q102": {"response": "487", "difficulty": "easy"},
+    "Q103": {"response": "892", "difficulty": "easy"},
+    "Q104": {"response": "156", "difficulty": "easy"},
+    "Q105": {"response": "673", "difficulty": "easy"},
+    "Q106": {"response": "329", "difficulty": "medium"},
+    "Q107": {"response": "741", "difficulty": "medium"},
+    "Q108": {"response": "568", "difficulty": "medium"},
+    "Q109": {"response": "934", "difficulty": "medium"},
+    "Q110": {"response": "412", "difficulty": "medium"},
+    "Q111": {"response": "785", "difficulty": "medium"},
+    "Q112": {"response": "215", "difficulty": "medium"},
+    "Q113": {"response": "643", "difficulty": "hard"},
+    "Q114": {"response": "921", "difficulty": "hard"},
+    "Q115": {"response": "358", "difficulty": "hard"},
+    "Q116": {"response": "487", "difficulty": "hard"},
+    "Q117": {"response": "156", "difficulty": "hard"},
+    "Q118": {"response": "829", "difficulty": "hard"},
+    "Q119": {"response": "215", "difficulty": "hard"},
+    "Q120": {"response": "674", "difficulty": "hard"},
+    "Q121": {"response": "943", "difficulty": "expert"},
+    "Q122": {"response": "512", "difficulty": "expert"},
+    "Q123": {"response": "785", "difficulty": "expert"},
+    "Q124": {"response": "329", "difficulty": "expert"},
+    "Q125": {"response": "891", "difficulty": "expert"}
+  },
+  "notes": {
+    "duplicate_responses": [
+      "215 appears in Q101, Q112, Q119 (3 queries)",
+      "487 appears in Q102, Q116 (2 queries)",
+      "156 appears in Q104, Q117 (2 queries)",
+      "329 appears in Q106, Q124 (2 queries)",
+      "785 appears in Q111, Q123 (2 queries)"
+    ],
+    "competition_opportunities": "Queries with same response create bidding wars when multiple agents know the answer"
+  }
+}

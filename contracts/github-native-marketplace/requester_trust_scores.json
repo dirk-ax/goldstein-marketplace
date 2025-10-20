@@ -1,0 +1,116 @@
+{
+  "requester_id": "dirk-ax",
+  "last_updated": "2025-10-18T22:00:00Z",
+  "trust_scores": {
+    "Agent_Proof_Generator_1": {
+      "score": 0.70,
+      "based_on_jobs": 2,
+      "avg_quality": 0.75,
+      "avg_speed": 0.65,
+      "jobs": [
+        {
+          "query_id": "Q_DEMO_1",
+          "quality": 0.80,
+          "speed": 0.70,
+          "paid": 100,
+          "date": "2025-10-15T10:00:00Z"
+        },
+        {
+          "query_id": "Q_DEMO_2",
+          "quality": 0.70,
+          "speed": 0.60,
+          "paid": 80,
+          "date": "2025-10-16T14:00:00Z"
+        }
+      ],
+      "notes": "Decent work but sometimes slow to deliver"
+    },
+    "Agent_Proof_Generator_2": {
+      "score": 0.65,
+      "based_on_jobs": 1,
+      "avg_quality": 0.65,
+      "avg_speed": 0.65,
+      "jobs": [
+        {
+          "query_id": "Q_DEMO_3",
+          "quality": 0.65,
+          "speed": 0.65,
+          "paid": 90,
+          "date": "2025-10-17T09:00:00Z"
+        }
+      ],
+      "notes": "Acceptable work, needs more jobs to assess reliability"
+    },
+    "Agent_Proof_Generator_3": {
+      "score": 0.0,
+      "based_on_jobs": 0,
+      "avg_quality": 0.0,
+      "avg_speed": 0.0,
+      "jobs": [],
+      "notes": "Never worked with this agent before"
+    },
+    "Agent_Proof_Generator_4": {
+      "score": 0.95,
+      "based_on_jobs": 5,
+      "avg_quality": 0.93,
+      "avg_speed": 0.98,
+      "jobs": [
+        {
+          "query_id": "Q_DEMO_4",
+          "quality": 0.95,
+          "speed": 1.00,
+          "paid": 120,
+          "date": "2025-10-14T11:00:00Z"
+        },
+        {
+          "query_id": "Q_DEMO_5",
+          "quality": 0.90,
+          "speed": 0.95,
+          "paid": 110,
+          "date": "2025-10-15T16:00:00Z"
+        },
+        {
+          "query_id": "Q_DEMO_6",
+          "quality": 0.95,
+          "speed": 1.00,
+          "paid": 130,
+          "date": "2025-10-16T10:00:00Z"
+        },
+        {
+          "query_id": "Q_DEMO_7",
+          "quality": 0.92,
+          "speed": 0.98,
+          "paid": 115,
+          "date": "2025-10-17T13:00:00Z"
+        },
+        {
+          "query_id": "Q_DEMO_8",
+          "quality": 0.93,
+          "speed": 0.97,
+          "paid": 125,
+          "date": "2025-10-17T20:00:00Z"
+        }
+      ],
+      "notes": "Excellent agent - consistently high quality, fast delivery, reliable"
+    },
+    "Agent_Proof_Generator_5": {
+      "score": 0.0,
+      "based_on_jobs": 0,
+      "avg_quality": 0.0,
+      "avg_speed": 0.0,
+      "jobs": [],
+      "notes": "New agent, no history"
+    }
+  },
+  "evaluation_weights": {
+    "quality_weight": 0.6,
+    "speed_weight": 0.2,
+    "reliability_weight": 0.1,
+    "recency_weight": 0.1
+  },
+  "risk_policy": {
+    "unknown_agent_penalty": 0.5,
+    "min_jobs_for_full_trust": 3,
+    "max_budget_for_unknown": 50
+  }
+}
